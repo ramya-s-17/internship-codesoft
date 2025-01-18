@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: pink;
+    }
+
+    .calculator {
+      width: 320px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .display {
+      width: 100%;
+      height: 50px;
+      font-size: 2rem;
+      text-align: right;
+      padding: 10px;
+      border: none;
+      background-color: #f0f0f0;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .btn {
+      font-size: 1.5rem;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+
+    #equals {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #equals:hover {
+      background-color: #45a049;
+    }
+
+    #clear, #delete {
+      background-color: #FF6347;
+      color: white;
+    }
+
+    #clear:hover, #delete:hover {
+      background-color: #e55347;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" class="display" disabled />
+    <div class="buttons">
+      <button class="btn" id="clear">C</button>
+      <button class="btn" id="divide">/</button>
+      <button class="btn" id="multiply">*</button>
+      <button class="btn" id="delete">DEL</button>
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn" id="subtract">-</button>
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn" id="add">+</button>
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button class="btn" id="equals">=</button>
+      <button class="btn">0</button>
+      <button class="btn">.</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.btn');
+    let currentInput = '';
+    let previousInput = '';
+    let operator = null;
+
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const buttonText = e.target.textContent;
+
+        if (buttonText === 'C') {
+          clearDisplay();
+        } else if (buttonText === 'DEL') {
+          deleteLastCharacter();
+        } else if (buttonText === '=') {
+          calculate();
+        } else if (['+', '-', '*', '/'].includes(buttonText)) {
+          setOperator(buttonText);
+        } else {
+          updateDisplay(buttonText);
+        }
+      });
+    });
+
+    function clearDisplay() {
+      currentInput = '';
+      previousInput = '';
+      operator = null;
+      display.value = '';
+    }
+
+    function deleteLastCharacter() {
+      currentInput = currentInput.slice(0, -1);
+      display.value = currentInput;
+    }
+
+    function setOperator(op) {
+      if (currentInput === '') return;
+      if (previousInput !== '') {
+        calculate();
+      }
+      operator = op;
+      previousInput = currentInput;
+      currentInput = '';
+    }
+
+    function updateDisplay(value) {
+      currentInput += value;
+      display.value = currentInput;
+    }
+
+    function calculate() {
+      if (previousInput === '' || currentInput === '') return;
+      let result;
+
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+
+      switch (operator) {
+        case '+':
+          result = prev + current;
+          break;
+        case '-':
+          result = prev - current;
+          break;
+        case '*':
+          result = prev * current;
+          break;
+        case '/':
+          if (current === 0) {
+            alert('Cannot divide by zero');
+            return;
+          }
+          result = prev / current;
+          break;
+        default:
+          return;
+      }
+
+      display.value = result;
+      previousInput = result;
+      currentInput = '';
+      operator = null;
+    }
+  </script>
+</body>
+</html>

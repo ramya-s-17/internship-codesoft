@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Creative Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+            background-color: pink; /* Aqua Green */
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(45deg, #ff6a00, #fda085); /* Vibrant orange to soft pink */
+            color: red;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            color:green;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+        }
+
+        header .cta-button {
+            background: #50c9c3; /* Bright turquoise */
+            color: white;
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        header .cta-button:hover {
+            background: #ff5f5f; /* Hover effect - red */
+            transform: translateY(-5px);
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            padding: 10px 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff6a00; /* Orange highlight */
+            border-radius: 5px;
+        }
+
+        /* Sections */
+        .benefits, .testimonials, .contact-form {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff6a00;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: black;
+            opacity: 0.8;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            background: linear-gradient(45deg, #ff6a00, #ff5f5f);
+            color: black;
+            padding: 60px 20px;
+        }
+
+        .contact-form input[type="email"] {
+            padding: 15px;
+            font-size: 1.2rem;
+            width: 60%;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            border: double;
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: #50c9c3;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff5f5f;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body style="background-color: #00FF99;">
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <h1>Welcome to Our Creative World</h1>
+        <p>Discover the power of creativity and innovation with our unique tools and resources.</p>
+        <button class="cta-button" onclick="window.location.href='#contact'">Get Started</button>
+    </header>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <p class="section-description">With innovative tools and a vibrant community, we help you unlock your creative potential.</p>
+        <!-- Add benefit items here -->
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Our Users Say</h2>
+        <p class="section-description">"This platform has completely transformed the way I approach creative projects!" - User 1</p>
+        <!-- Add more testimonials here -->
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-form">
+        <h2 class="section-title">Join Us Today</h2>
+        <p class="section-description">Subscribe to our newsletter to stay updated on the latest offers and updates!</p>
+
+        <!-- Sign-Up Form -->
+        <form action="signup.html" method="GET">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Creative Company. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
